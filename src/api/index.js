@@ -18,6 +18,7 @@ router.post(`/signup`, async (req, res) => {
       `insert into users(username,email,name,password) values($1,$2,$3,$4)`,
       [data.data.username, data.data.email, data.data.name, data.data.password]
     );
+    res.json({});
   } catch (e) {
     console.error(e);
     if (e.code === "23505") {
@@ -46,14 +47,10 @@ router.post("/signin", async (req, res) => {
     res.send("invalid credentials");
     return;
   }
-  const token = jwt.sign(
-    {
-      username: user.username,
-      email: user.email,
-    },
-    "muffin bhai laddo kha rhe",
-    { expiresIn: 10 }
-  );
+  const token = jwt.sign({}, "muffin", {
+    expiresIn: 10 * 60,
+    subject: user.id,
+  });
   res.cookie("authentication", token, {
     httpOnly: true,
     // maxAge: 60 * 3,
@@ -63,9 +60,6 @@ router.post("/signin", async (req, res) => {
 });
 
 router.get(`/user`, async (req, res) => {
-  const payload = jwt.verify(
-    req.cookies.authentication,
-    "muffin bhai laddo kha rhe"
-  );
+  const payload = jwt.verify(req.cookies.authentication, "muffin");
   res.json(payload);
 });

@@ -1,6 +1,6 @@
 -- Start your sql below
 CREATE TABLE "users" (
-  id SERIAL PRIMARY KEY,
+  id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
   name VARCHAR(50) NOT NULL,
   email VARCHAR(50) UNIQUE NOT NULL,
   username VARCHAR(50) UNIQUE NOT NULL,

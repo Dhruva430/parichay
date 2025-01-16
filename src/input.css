@@ -1,0 +1,38 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.button {
+  @apply p-4 bg-black text-white w-full rounded-full;
+}
+
+.form-field {
+  @apply relative flex items-center w-full;
+}
+
+.form-input {
+  @apply pt-4 border-b-2 border-black outline-none w-full;
+}
+
+.form-label {
+  @apply absolute pointer-events-none peer-focus:text-sm peer-focus:-translate-y-2 transition;
+}
+
+.overlay {
+  position: absolute;
+  inset: 0;
+  @apply bg-black;
+  transition: all 1s ease-in-out;
+}
+
+[data-page="signin"] .overlay {
+  transform-origin: bottom right;
+  rotate: 60deg;
+  transform: translateY(25%);
+}
+
+[data-page="signup"] .overlay {
+  transform-origin: bottom left;
+  rotate: -60deg;
+  transform: translateY(25%);
+}

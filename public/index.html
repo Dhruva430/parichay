@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="/scripts/script.js" defer></script>
+</head>
+
+<body class="flex items-center justify-center h-screen relative">
+  <div id="container" data-page="signup"
+      class="grid grid-cols-2 overflow-hidden w-full max-w-[800px] shadow-lg shadow-indigo-500/40  self-center p-10 rounded-lg relative group">
+    <div class="overlay">
+    </div>
+    <div class="text-white max-w-[200px]">
+      <h3 class="text-5xl font-bold">Welcome Back!</h3>
+      <p class="my-4">
+        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Placeat facere ducimus eius officia veniam
+        omnis?
+      </p>
+    </div>
+    <div class="flex flex-col items-center">
+      <form action="" class="flex flex-col items-center max-w-[400px] ">
+        <h3
+            class="text-5xl font-bold capitalize relative after:relative items-center after:mt-5 after:content-[''] after:block after:w-14 after:h-2 after:bg-black flex flex-col">
+          Sign Up</h3>
+        <div class="flex flex-col gap-10 w-full mt-20">
+          <div class="form-field">
+            <input type="text" id="username" class="form-input peer">
+            <label class="form-label" for="username">Username</label>
+          </div>
+          <div class="form-field">
+            <input type="text" id="email" class="form-input peer">
+            <label class="form-label" for="email">Email</label>
+          </div>
+          <div class="form-field">
+            <input type="text" id="password" class="form-input peer">
+            <label class="form-label" for="password">Password</label>
+          </div>
+          <button class="button" type="submit">Signup</button>
+        </div>
+        <div class="mt-2">
+          <p>
+            Already have an account? <button id="signin-button" type="button">Login<button />
+          </p>
+        </div>
+      </form>
+    </div>
+  </div>
+
+
+
+
+</body>
+
+</html>
