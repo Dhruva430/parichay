@@ -15,8 +15,14 @@ router.post(`/signup`, async (req, res) => {
   }
   try {
     await pool.query(
-      `insert into users(username,email,name,password) values($1,$2,$3,$4)`,
-      [data.data.username, data.data.email, data.data.name, data.data.password]
+      `insert into users(username,email,first_name,last_name,password) values($1,$2,$3,$4,$5)`,
+      [
+        data.data.username,
+        data.data.email,
+        data.data.first_name,
+        data.data.last_name,
+        data.data.password,
+      ]
     );
     res.json({});
   } catch (e) {

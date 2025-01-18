@@ -4,55 +4,94 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+  <title>Parichay</title>
   <link rel="stylesheet" href="style.css">
-  <script src="/scripts/script.js" defer></script>
+  <script src="https://kit.fontawesome.com/dd6b48e07b.js" crossorigin="anonymous"></script>
 </head>
 
-<body class="flex items-center justify-center h-screen relative">
-  <div id="container" data-page="signup"
-      class="grid grid-cols-2 overflow-hidden w-full max-w-[800px] shadow-lg shadow-indigo-500/40  self-center p-10 rounded-lg relative group">
-    <div class="overlay">
-    </div>
-    <div class="text-white max-w-[200px]">
-      <h3 class="text-5xl font-bold">Welcome Back!</h3>
-      <p class="my-4">
-        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Placeat facere ducimus eius officia veniam
-        omnis?
-      </p>
-    </div>
-    <div class="flex flex-col items-center">
-      <form action="" class="flex flex-col items-center max-w-[400px] ">
-        <h3
-            class="text-5xl font-bold capitalize relative after:relative items-center after:mt-5 after:content-[''] after:block after:w-14 after:h-2 after:bg-black flex flex-col">
-          Sign Up</h3>
-        <div class="flex flex-col gap-10 w-full mt-20">
-          <div class="form-field">
-            <input type="text" id="username" class="form-input peer">
-            <label class="form-label" for="username">Username</label>
+<body>
+  <div>
+    <!-- Header -->
+    <header class=" bg-white shadow-xl p-5 z-50 sticky ">
+      <div class="max-w-[100rem] mx-auto w-full flex justify-between items-center">
+        <p class=" font-si font-bold ">Parichay</p>
+        <input class="focus:ring-gray-500  focus:ring-[2px] outline-none ring-black px-2 py-1 border-2 rounded-2xl w-80"
+            placeholder="Search" type="text">
+        <ul class="flex gap-4 px-6 py-1">
+          <li>Home</li>
+          <li>Notifications</li>
+          <li>Profiles</li>
+        </ul>
+      </div>
+    </header>
+    <!-- page layout  -->
+    <div class="flex justify-center max-w-[100rem] mx-auto gap-40 ">
+      <!-- first half -->
+      <div class="grow p-2 max-w-xl border-2 mt-6">
+        <div class="flex gap-2  ">
+          <div class="w-14 h-14 shrink-0 rounded-full overflow-hidden">
+            <img src="./images/muffin.jpg" alt="not available">
           </div>
-          <div class="form-field">
-            <input type="text" id="email" class="form-input peer">
-            <label class="form-label" for="email">Email</label>
+          <div class="m-1">
+            <p class="font-bold">Muffin</p>
+            <p class="opacity-45 text-xs">@muffin Today 08:45</p>
           </div>
-          <div class="form-field">
-            <input type="text" id="password" class="form-input peer">
-            <label class="form-label" for="password">Password</label>
-          </div>
-          <button class="button" type="submit">Signup</button>
         </div>
-        <div class="mt-2">
-          <p>
-            Already have an account? <button id="signin-button" type="button">Login<button />
-          </p>
+        <p class="mt-2">Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum laboriosam provident
+          sapiente
+          deserunt,
+          hic unde. Consequuntur maxime magni dolorem totam?</p>
+        <hr class="m-2">
+        <div class="flex gap-3">
+          <button class="p-2 border-2 rounded-xl"><i class="fa-solid fa-heart"></i> 600</button>
+          <button class="p-2 border-2 rounded-xl"><i class="fa-regular fa-comment"></i> 3</button>
+          <button class="p-2 border-2 rounded-xl pl-4 pr-4 ml-auto"><i class="fa-regular fa-bookmark"></i></button>
+          <button class="p-2 border-2 rounded-xl pl-4 pr-4"><i class="fa-solid fa-share-nodes"></i></button>
         </div>
-      </form>
+      </div>
+      <!-- second Half -->
+      <div class=" max-w-[300px] grow flex flex-col gap-1 sticky z-10 border-l-2 h-[calc(100vh-75px)] mt-6">
+        <div class="border-2 rounded-lg flex items-center bg-black p-2 gap-2">
+          <div class="w-10 h-10 rounded-full items-center overflow-hidden">
+            <img src="./images/muffin.jpg">
+          </div>
+          <div class="flex justify-between grow">
+            <div class="flex flex-col">
+              <p class="font-bold text-white">Muffin</p>
+              <p class="opacity-50 text-white text-xs">Followed by @mythical</p>
+            </div>
+            <a href="Not available" class="text-blue-700 self-center">Follow</a>
+          </div>
+        </div>
+        <div class="border-2 rounded-lg flex items-center bg-black p-2 gap-2">
+          <div
+              class="w-10 h-10 rounded-full bg-gray-600 center flex items-center justify-center text-center overflow-hidden">
+            <img src="./images/muffin.jpg">
+          </div>
+          <div class="flex justify-between grow">
+            <div class="flex flex-col">
+              <p class="font-bold text-white">Muffin</p>
+              <p class="opacity-50 text-white text-xs">Followed by @mythical</p>
+            </div>
+            <a href="" class="text-blue-700 self-center">Follow</a>
+          </div>
+        </div>
+        <div class="border-2 rounded-lg flex items-center bg-black p-2 gap-2">
+          <div
+              class="w-10 h-10 rounded-full bg-gray-600 center flex items-center justify-center text-center overflow-hidden">
+            <img src="./images/muffin.jpg">
+          </div>
+          <div class="flex justify-between grow">
+            <div class="flex flex-col">
+              <p class="font-bold text-white">Muffin</p>
+              <p class="opacity-50 text-white text-xs">Followed by @mythical</p>
+            </div>
+            <a href="" class="text-blue-700 self-center">Follow</a>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
-
-
-
-
 </body>
 
 </html>
