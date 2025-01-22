@@ -1,0 +1,17 @@
+meta {
+  name: comments
+  type: http
+  seq: 6
+}
+
+post {
+  url: http://localhost:5000/api//post/901d475b-a0ad-46ee-9ea6-e0a8a5604c6f/comments
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+    "content": "Nice Works"
+  }
+}

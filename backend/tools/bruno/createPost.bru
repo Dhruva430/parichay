@@ -1,0 +1,18 @@
+meta {
+  name: createPost
+  type: http
+  seq: 5
+}
+
+post {
+  url: http://localhost:5000/api/post
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+    "content": "This is my Content",
+    "title": "this is my Title"
+  }
+}
