@@ -70,7 +70,7 @@ router.get(`/user`, async (req, res) => {
   const payload = jwt.verify(req.cookies.authentication, "cookie");
   res.json(payload);
 });
-
+// Handling Post
 router.post(`/post`, auth, async (req, res) => {
   const { content, title } = req.body;
 
@@ -90,6 +90,7 @@ router.post(`/post`, auth, async (req, res) => {
     res.status(500).send("Failed to create post");
   }
 });
+// Handle Likes
 router.post(`/post/:postId/likes`, auth, async (req, res) => {
   try {
     await pool.query(`INSERT INTO likes {user_id,post_id} VALUE($1,$2)`, [
@@ -101,7 +102,7 @@ router.post(`/post/:postId/likes`, auth, async (req, res) => {
     res.send(`error occured`);
   }
 });
-router.post(`/post/:postId/unlikes`, auth, async (req, res) => {
+router.delete(`/post/:postId/likes`, auth, async (req, res) => {
   try {
     await pool.query(`DELETE FROM likes WHERE userId =$1 and postId= $2`, [
       req.userId,
@@ -112,7 +113,7 @@ router.post(`/post/:postId/unlikes`, auth, async (req, res) => {
     res.send(`error occured in post section`);
   }
 });
-
+// Handle Comments
 router.post(`/post/:postId/comments`, auth, async (req, res) => {
   console.log(`Yo`);
   const { content } = req.body;
@@ -132,5 +133,61 @@ router.post(`/post/:postId/comments`, auth, async (req, res) => {
   } catch (err) {
     console.error(err);
     res.send(`error in comment section`);
+  }
+});
+router.delete(`/post/:postId/comments`, auth, async (req, res) => {
+  try {
+    console.log(req.params.postId);
+    console.log(req.userId);
+    await pool.query("DELETE FROM comments WHERE user_id=$1 and post_id=$2", [
+      req.userId,
+      req.params.postId,
+    ]);
+    res.json({ message: `comment deleted successfully` });
+  } catch (err) {
+    console.error(err);
+    res.send(`error in comment section`);
+  }
+});
+// Handle Follow
+router.post(`/follow`, auth, async (req, res) => {
+  const { followingId } = req.body;
+  const followerId = req.userId;
+  if (!followingId) {
+    return;
+  }
+  if (followerId == followingId) {
+    res.json({
+      message: `You can not follow Yourself`,
+    });
+    return;
+  }
+  try {
+    await pool.query(
+      `INSERT INTO follows (follower_id,following_id) VALUES($1,$2)`,
+      [followerId, followingId]
+    );
+    res.json({ message: `Followed successfully` });
+  } catch (err) {
+    console.error(err);
+    res.json({ message: "follow error" });
+  }
+});
+
+router.post(`/unfollow`, auth, async (req, res) => {
+  const { followingId } = req.body;
+  const followerId = req.userId;
+  if (!followingId) {
+    return;
+  }
+  try {
+    await pool.query(
+      `DELETE FROM follows WHERE follower_id=$1 and following_id=$2`,
+      [followerId, followingId]
+    );
+    res.json({ message: `Unfollowed successfully` });
+  } catch (err) {
+    console.error(err);
+    res.json({ message: `Unfollow error` });
   }
 });

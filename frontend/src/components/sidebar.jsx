@@ -3,7 +3,7 @@ import React from "react";
 const SidebarItems = [
   ["Home", "fa-solid fa-house-user", "/"],
   ["Create", "fa-solid fa-circle-plus", "/create"],
-  ["Notifications", "fa-regular fa-heart", "/notifications"],
+  ["Likes", "fa-regular fa-heart", "/notifications"],
   ["Explore", "fa-regular fa-compass", "/explore"],
   // ["Test Item", "fa-regular fa-compass", "/explore"],
 ];

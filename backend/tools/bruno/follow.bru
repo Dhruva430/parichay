@@ -1,0 +1,17 @@
+meta {
+  name: follow
+  type: http
+  seq: 7
+}
+
+post {
+  url: http://localhost:5000/api/follow
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+    "followingId": "478733e2-a332-456f-abeb-02c7831c1f71"
+  }
+}

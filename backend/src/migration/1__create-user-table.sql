@@ -53,5 +53,6 @@ CREATE TABLE
     follow_id UUID PRIMARY KEY DEFAULT gen_random_uuid (),
     follower_id UUID NOT NULL REFERENCES users (id),
     following_id UUID NOT NULL REFERENCES users (id),
-    created_at TIMESTAMPTZ DEFAULT CURRENT_TIMESTAMP
+    created_at TIMESTAMPTZ DEFAULT CURRENT_TIMESTAMP,
+    UNIQUE (follower_id, following_id)
   );
